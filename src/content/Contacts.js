@@ -4,16 +4,18 @@ import React from 'react';
 import { Link } from 'react-router';
 import Page from './Page';
 
-const Home = (props) => {
+const Contacts = (props) => {
 
     return (
         <Page>
 
-            <h1>Home Page</h1>
+            <div>
+                <h1>Contacts</h1>
+            </div>
 
         </Page>
     );
 
 }
 
-export default Home;
+export default Contacts;

@@ -62,11 +62,22 @@ const WebpackConfig = {
                     plugins: [ 'lodash', [ 'import', { libraryName: 'antd', style: 'css' } ], 'syntax-dynamic-import' ]
                 }
             },
+            // {
+            //     use: ExtractTextPlugin.extract({
+            //         use: 'css-loader',
+            //     }),
+            //     test: /.css$/,
+            //     exclude: /flexboxgrid/
+            // },
             {
-                use: ExtractTextPlugin.extract({
-                    use: 'css-loader',
-                }),
-                test: /.css$/
+                test: /\.(s*)css$/,
+                use: ['style-loader','css-loader', 'sass-loader'],
+                exclude: /flexboxgrid/
+            },
+            {
+              test: /\.css$/,
+              loader: 'style-loader!css-loader?modules',
+              include: /flexboxgrid/
             },
             {
                 loader: 'json-loader',
@@ -111,7 +122,6 @@ const WebpackConfig = {
         },
         extensions: [ '.js', '.json' ]
     },
-
 };
 
 module.exports = WebpackConfig;

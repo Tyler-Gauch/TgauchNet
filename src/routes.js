@@ -18,6 +18,19 @@ const WebsiteRoutes = {
             },
         },
 
+        {
+            path: '/contacts',
+            indexRoute: {
+                getComponent(location, cb) {
+                    DynamicImport(
+                        import('app/content/Contacts'),
+                        cb,
+                        'contacts'
+                    );
+                }
+            }
+        }
+
 
     ],
 };

@@ -1,0 +1,10 @@
+@import './link';
+@import '../base/colors';
+
+.Heading {
+  & .title {
+    text-decoration: none;
+    font-size: 5rem;
+    color: $text-primary;
+  }
+}
