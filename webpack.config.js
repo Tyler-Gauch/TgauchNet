@@ -59,16 +59,9 @@ const WebpackConfig = {
                 include : APP_DIR,
                 options: {
                     presets: [ ['env',{ modules: false }], 'react' ],
-                    plugins: [ 'lodash', [ 'import', { libraryName: 'antd', style: 'css' } ], 'syntax-dynamic-import' ]
+                    plugins: [ 'lodash', [ 'import', { libraryName: 'antd', style: 'css' } ], 'syntax-dynamic-import', 'transform-class-properties' ]
                 }
             },
-            // {
-            //     use: ExtractTextPlugin.extract({
-            //         use: 'css-loader',
-            //     }),
-            //     test: /.css$/,
-            //     exclude: /flexboxgrid/
-            // },
             {
                 test: /\.(s*)css$/,
                 use: ['style-loader','css-loader', 'sass-loader'],
@@ -82,7 +75,18 @@ const WebpackConfig = {
             {
                 loader: 'json-loader',
                 test: /.json$/
-            }
+            },
+            {
+             test: /.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+             use: [{
+               loader: 'file-loader',
+               options: {
+                name: "fonts/[name].[ext]",
+                 outputPath: 'fonts/',    // where the fonts will go
+                 publicPath: PUBLIC_DIR       // override the default path
+               }
+             }]
+           },
         ],
     },
 
