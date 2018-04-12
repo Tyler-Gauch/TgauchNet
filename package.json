@@ -26,7 +26,9 @@
     "react-dom": "^16.3.1",
     "react-flexbox-grid": "^2.0.0",
     "react-fontawesome": "^1.6.1",
-    "react-router": "^3.2.1"
+    "react-router": "^3.2.1",
+    "react-slick": "^0.23.1",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
