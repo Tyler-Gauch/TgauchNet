@@ -40,14 +40,7 @@ module.exports = {
         },
         {
          test: /.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
-         use: [{
-           loader: 'file-loader',
-           options: {
-            name: "fonts/[name].[ext]",
-             outputPath: '/',    // where the fonts will go
-             publicPath: PUBLIC_DIR       // override the default path
-           }
-         }]
+         loader: 'file-loader'
        }
     ]  
   },
