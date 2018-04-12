@@ -1,16 +1,29 @@
+'use strict';
+
 import React from 'react';
-import ReactDOM from 'react-dom';
-import FontAwesome from 'react-fontawesome';
+import { render } from 'react-dom';
+
+import { Router, browserHistory } from 'react-router';
+import WebsiteRoutes from './routes';
+
 import './stylesheets/base/base.scss';
 
-const title = "testing";
+const AppLayout = (props) => {
+    return (
+        <div>
+            { props.children }
+        </div>
+    )
+}
 
-ReactDOM.render(
-  <div>{title}
-  <div>Just making sure</div>
-    <FontAwesome name="rocket" size="2x"/>
-  </div>,
-  document.getElementById('app')
+render(
+    (
+        <AppLayout>
+            <Router history={ browserHistory } routes={ WebsiteRoutes } />
+        </AppLayout>
+    ),
+    document.getElementById('root')
 );
+
 
 module.hot.accept();

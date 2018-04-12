@@ -3,7 +3,8 @@
 import React from 'react';
 import { Link } from 'react-router';
 import Page from './Page';
-import Carousel from '../components/Carousel';
+import Carousel from 'app/components/Carousel';
+import {Grid, Row, Col} from 'react-flexbox-grid';
 
 // Data for carousel
 const carouselSlidesData = [
@@ -50,9 +51,16 @@ const Home = (props) => {
 
     return (
         <Page>
-
-            <h1>Home Page</h1>
-            <Carousel slides={carouselSlidesData}></Carousel>
+            <Grid fluid className="homepage_main">
+              <Row>
+                <Col xs={6}>
+                  <Carousel slides={carouselSlidesData} vertical={true}></Carousel>
+                </Col>
+                <Col xs={6}>
+                  <Carousel slides={carouselSlidesData} vertical={true} left={true}></Carousel>
+                </Col>
+              </Row>
+            </Grid>
         </Page>
     );
 

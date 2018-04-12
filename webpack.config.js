@@ -5,6 +5,8 @@ const BUILD_DIR = path.join(__dirname, 'public/scripts');
 const PUBLIC_DIR = path.join(__dirname, 'public');
 const APP_DIR = path.join(__dirname, 'src');
 
+const HTMLWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
   entry: [
       'webpack-dev-server/client?https://0.0.0.0:8080',
@@ -64,6 +66,16 @@ module.exports = {
     disableHostCheck: true
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()    
+    new webpack.HotModuleReplacementPlugin(),
+    new HTMLWebpackPlugin({
+            inject: false,
+            filename: '200.html',
+            template: 'src/200.ejs',
+            minify: {
+                collapseBooleanAttributes: true,
+                removeComments: true,
+                collapseWhitespace: true,
+            }
+        }),
   ]
 };

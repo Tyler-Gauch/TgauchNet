@@ -3,7 +3,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import '../stylesheets/components/heading.scss';
+import 'app/stylesheets/components/heading.scss';
 
 const Heading = (props) => {
 
